@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 use Psr\Http\Message\ServerRequestInterface;
 
-class CategoryController extends SearchableController
+class CategoryController extends SearchController
 {
 
 const array ITEMS = [

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 
 
-abstract class SearchableController extends Controller
+abstract class SearchController extends Controller
 {
     public const array ITEMS = [];
 
