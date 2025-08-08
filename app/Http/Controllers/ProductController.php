@@ -69,7 +69,7 @@ class ProductController extends SearchableController
             'price' => 365.00,
         ],
     ];
-
+    
     private string $title = 'Products';
 
     function list(ServerRequestInterface $request,
