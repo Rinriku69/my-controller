@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 
 abstract class SearchableController extends Controller
 {
-    const array ITEMS = [];
+    public const array ITEMS = [];
 
     function prepareCriteria(array $criteria) : array{
         return [
@@ -31,18 +31,18 @@ abstract class SearchableController extends Controller
         if($criteria['term'] !== null) {
         $items = $this->filterByTerm($items, $criteria['term']);
         }
-    return $items;
+        return $items;
     }
 
     function search(array $criteria): array {
-    return $this->filter(static::ITEMS, $criteria);
+        return $this->filter(static::ITEMS, $criteria);
     }
 
     function find(string $code): ?array {
         foreach(static::ITEMS as $item){
             if($item['code'] === $code) return $item;
         }
-    return null;
+        return null;
     }
     
 }
