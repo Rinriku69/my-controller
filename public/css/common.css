@@ -158,3 +158,33 @@ dl.app-cmp-data-detail > dt:not(:empty)::after {
         }
     }
 }
+
+a {
+        text-decoration: none;
+        color: orange;
+        font-weight: bold;
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.75);
+        }
+    }
+
+input{
+    margin-bottom: 10px;
+}
+
+
+.button{
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+
+table,tr,td{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+
+  
+}
+

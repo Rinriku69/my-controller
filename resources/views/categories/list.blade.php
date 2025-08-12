@@ -10,8 +10,11 @@
         name="term" value="{{ $criteria['term'] }}" />
         
         </div>
-        <div>
+        <div class="button">
         <button type="submit">Search</button>
+        <a href="{{ route('products.list') }}">
+                <button type="button">X</button>
+            </a>
         </div>
     </form>
 
@@ -24,7 +27,9 @@
         <tbody>
         @foreach($categories as $category)
         <tr>
-        <td>{{ $category['code'] }}</td> 
+        <td><a href="{{ route('categories.view', ['cat_code' => $category['code']]) }}">
+                                    {{ $category['code'] }}
+                                </a>&nbsp;</td> 
         <td>{{ $category['name'] }}</td>
         </tr>
         @endforeach
