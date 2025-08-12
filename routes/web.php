@@ -20,4 +20,5 @@ Route::controller(ProductController::class)
  ->name('categories.')
  ->group(static function(): void{
     Route::get('','list')->name('list');
+    Route::get('/{cat_code}','category_view')->name('view');
  });
