@@ -32,15 +32,18 @@ class CategoryController extends SearchController
 
    private string $title = 'Categories';
 
-    function category_view(ServerRequestInterface $request, string $cat_code) : View{
+    function category_view(ServerRequestInterface $request, string $cat_code,) : View{
         $criteria = $this->prepareCriteria($request->getQueryParams());
         $categories = $this->search($criteria);
+        $products = ProductController::ITEMS;
+        $products = $this->prepareCategory($products);
+        
         
         return view('categories.view', [
             'title' => "{$this->title}: List",
             'criteria' => $criteria,
             'cat_code' => $cat_code,
-            'products' => ProductController::ITEMS,
+            'products' => $products,
             'category' => self::ITEMS,
             'categories' => $categories,
         ]);
