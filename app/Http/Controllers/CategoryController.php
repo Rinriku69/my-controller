@@ -29,9 +29,32 @@ function prepareCategory(array $items): array
         return $items;
     }
 
+   private string $title = 'Categories';
+
+    function category_view(ServerRequestInterface $request, string $cat_code,) : View{
+        $criteria = $this->prepareCriteria($request->getQueryParams());
+        $categories = $this->search($criteria);
+        $products = ProductController::ITEMS;
+        
+
+        $filteredProducts = [];
+        foreach($products as $product)
+        if(in_array($cat_code,$product['categories'])){
+            $filteredProducts[] = $product;
+        }
+
+        $filteredProducts = $this->prepareCategory($filteredProducts);
+        
+        return view('categories.view', [
+            'title' => "{$this->title}: List",
+            'criteria' => $criteria,
+            'products' => $filteredProducts,
+            'categories' => $categories,
+        ]);
+    }
 
 
-    private string $title = 'Cateogries';
+    
 
 function list(ServerRequestInterface $request): View {
 // method prepareCriteria() and search() inherit
