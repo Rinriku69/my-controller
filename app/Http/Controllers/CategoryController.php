@@ -45,7 +45,7 @@ function prepareCategory(array $items): array
 
         $filteredProducts = $this->prepareCategory($filteredProducts);
         
-        return view('categories.view', [
+        return view('categories.view',[
             'title' => "{$this->title}: List",
             'criteria' => $criteria,
             'products' => $filteredProducts,

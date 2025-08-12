@@ -29,7 +29,9 @@
         <td>{{ $product['name'] }}</td>
         <td>
         @foreach ($product['categories'] as $productCategory)
-                                {{ $productCategory['name'] }}&nbsp;
+                                <a href="{{ route('categories.view', ['cat_code' => $productCategory['code']]) }}">
+                                    {{ $productCategory['name'] }}
+                                </a>&nbsp;
         @endforeach
         </td>
         <td>{{ number_format($product['price'], 2) }}</td>
