@@ -23,8 +23,8 @@
         <tr></thead>
         <tbody>
         @foreach($products as $product)
-        @foreach($product['categories'] as $product)
-        @if ($product === $cat_code)
+        @foreach($product['categories'] as $product_cat)
+        @if ($product_cat === $cat_code)
             <tr>
                 <td>{{ $product['code'] }}</td>
                 <td>{{ $product['name'] }}</td>
