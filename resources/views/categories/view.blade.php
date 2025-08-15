@@ -1,5 +1,5 @@
 @extends('layouts.main', [
-'title' => $title,
+'title' => $title.': '.$cat_names,
 ])
 
 @section('content')
