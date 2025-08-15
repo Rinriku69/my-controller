@@ -33,9 +33,10 @@ function prepareCategory(array $items): array
 
     function category_view(ServerRequestInterface $request, string $cat_code,) : View{
         $criteria = $this->prepareCriteria($request->getQueryParams());
-        $categories = $this->search($criteria);
-        $products = ProductController::ITEMS;
         $categories = self::ITEMS;
+        $products = ProductController::ITEMS;
+        
+        
         foreach($categories as $category)
         if($cat_code !== null && $category['code'] === $cat_code){
             $cat_name = $category['name'] ;
@@ -49,12 +50,14 @@ function prepareCategory(array $items): array
         }
 
         $filteredProducts = $this->prepareCategory($filteredProducts);
+        $searchItems = $this->filter($filteredProducts,$criteria);
         
         return view('categories.view',[
             'title' => "{$this->title}",
             'criteria' => $criteria,
-            'products' => $filteredProducts,
-            'cat_names' => $cat_name, 
+            'products' => $searchItems,
+            'cat_names' => ($cat_name ?? []), 
+            'cat_code' => $cat_code,
             'categories' => $categories,
         ]);
     }

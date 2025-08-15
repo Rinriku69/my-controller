@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-        <form action="{{ route('products.list') }}" method="get">
+        <form action="{{ route('categories.view', ['cat_code' => $cat_code]) }}" method="get">
         <div class="form">
         <label for="app-inp-search-term" >Search</label>
         <input  type="text" id="app-inp-search-term"
